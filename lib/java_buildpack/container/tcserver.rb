@@ -119,7 +119,7 @@ module JavaBuildpack::Container
       #puts "The javahome/bin directory"
       #Dir.entries(".java/bin").each { |entry| puts entry
       #}
-      shell hash, "#{tcserver_home}/tcruntime-instance.sh create #{tomcat_home}"
+      shell hash, "#{tcserver_home}/tcruntime-instance.sh create tomcat -i #{tcserver_home}"
       shell "rm -rf #{tomcat_home}/conf/server.xml"
       shell "rm -rf #{tomcat_home}/conf/context.xml"
 
