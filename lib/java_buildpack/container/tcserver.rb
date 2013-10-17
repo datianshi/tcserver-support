@@ -112,6 +112,7 @@ module JavaBuildpack::Container
       shell "mkdir -p #{tcserver_home}"
       #shell "tar xzf #{file.path} -C #{tcserver_home} --strip 1 --exclude webapps --exclude #{File.join 'conf', 'server.xml'} --exclude #{File.join 'conf', 'context.xml'} 2>&1"
       shell "tar xzf #{file.path} -C #{tcserver_home} --strip 1"
+      shell "export JAVA_HOME=#{@java_home}"
       shell "#{tcserver_home}/tcruntime-instance.sh create tomcat"
       shell "rm -rf #{tomcat_home}/conf/server.xml"
       shell "rm -rf #{tomcat_home}/conf/context.xml"
