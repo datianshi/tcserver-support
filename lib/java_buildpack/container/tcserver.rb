@@ -107,18 +107,18 @@ module JavaBuildpack::Container
     def expand(file)
       expand_start_time = Time.now
       print "       Expanding Tcserver to #{TCSERVER_HOME} "
-      hash = {"JAVA_HOME" => @java_home}
+      hash = {"JAVA_HOME" => "/tmp/staged/app/.java"}
 
       shell "rm -rf #{tcserver_home}"
       shell "mkdir -p #{tcserver_home}"
       #shell "tar xzf #{file.path} -C #{tcserver_home} --strip 1 --exclude webapps --exclude #{File.join 'conf', 'server.xml'} --exclude #{File.join 'conf', 'context.xml'} 2>&1"
       shell "tar xzf #{file.path} -C #{tcserver_home} --strip 1"
-      puts "The javahome directory"
-      Dir.entries(".java").each { |entry| puts entry
-      }
-      puts "The javahome/bin directory"
-      Dir.entries(".java/bin").each { |entry| puts entry
-      }
+      #puts "The javahome directory"
+      #Dir.entries(".java").each { |entry| puts entry
+      #}
+      #puts "The javahome/bin directory"
+      #Dir.entries(".java/bin").each { |entry| puts entry
+      #}
       shell hash, "#{tcserver_home}/tcruntime-instance.sh create tomcat"
       shell "rm -rf #{tomcat_home}/conf/server.xml"
       shell "rm -rf #{tomcat_home}/conf/context.xml"
