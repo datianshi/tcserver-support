@@ -1,0 +1,16 @@
+---
+AllCops:
+  Excludes:
+    - vendor/**
+ClassLength:
+  Max: 200
+Documentation:
+  Enabled: false
+LineLength:
+  Enabled: false
+MethodLength:
+  Max: 25
+ParameterLists:
+  Max: 6
+ClassVars:
+  Enabled: false
