@@ -56,7 +56,7 @@ module JavaBuildpack::Container
 
       java_home_string = "JAVA_HOME=#{@java_home}"
       java_opts_string = ContainerUtils.space("JAVA_OPTS=\"#{ContainerUtils.to_java_opts_s(@java_opts)}\"")
-      start_script_string = ContainerUtils.space(File.join TCSERVER_HOME, "tomcat", "bin" 'tcruntime-ctl.sh')
+      start_script_string = ContainerUtils.space(File.join TCSERVER_HOME, "tomcat", "bin", 'tcruntime-ctl.sh')
 
       "#{java_home_string}#{java_opts_string}#{start_script_string}  run"
     end
