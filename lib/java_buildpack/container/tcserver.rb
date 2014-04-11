@@ -41,10 +41,12 @@ module JavaBuildpack::Container
     end
 
     def detect
+      put 'tcserver detecting'
       @tcserver_version && @support_version ? [tomcat_id(@tcserver_version), support_id(@support_version)] : nil
     end
 
     def compile
+      put 'tcserver compiling'
       download_tcserver
       download_support
       link_application
